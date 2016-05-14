@@ -1,24 +1,40 @@
 /* CSS declarations go here */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
 html{
     height: 100%;
 }
+
 body{
-    width: 100%;
-    height: 100%;
+    font-family: "Nanum Gothic", sans-serif;
+    height:100%;
 }
+
+.sideMenue-panel{
+    color: #FFFFFF;
+    padding:15px 30px 15px 25px;
+    cursor: default;
+}
+
+.sideMenue-panel-item{
+    cursor: pointer;
+}
+
+.sideMenue-panel-item:hover{
+    background-color: #D2C19C;
+}
+
 #sideMenue{
-    position: fixed;
     width: 250px;
-    height: 100%;
-    background-color: #30426A;;
+    height: calc(100% - 70px);
+    background-color: #30426A;
+    float: left;
 }
 
 .topBar{
+    width:100%;
     height: 70px;
-    width: 100%;
-    left: 250px;
-    padding: 10px;
-    z-index: 5;
+    padding: 10px 25px 10px 25px;;
     background-color: white;
 }
 
@@ -26,6 +42,11 @@ body{
     position: relative;
     height: 35px;
     padding-top: 10px;
+}
+
+#contentsContainer{
+    width: 100%;
+    float: right;
 }
 
 #sideItem{
@@ -71,162 +92,38 @@ body{
 #sideMainimg{
     cursor: pointer;
     position: absolute;
-    right: 32px;
+    right: 40px;
     top: 25px;
+}
+
+.profileName{
+    font-size: 13px;
+    color: #DFE4ED;
+}
+
+.profileteam{
+    font-size: 12px;
+    color: #7D93A5;
 }
 
 #sideMainimg:hover{
     color: #D2D29C;
 }
 
+.MainContainer{
+    padding: 20px 20px 20px 20px;
+    position: absolute;
+    width: calc(100% - 250px);
+    min-height: calc(100% - 70px);
+}
+
+.test{
+    border: 1px solid darkblue;
+    padding: 10px 10px 10px 10px;
+}
+
 .sideMain{
-    padding: 10px 0px 10px 0px;
+    padding: 10px 25px 10px 25px;
     background-color: #2D3E63;
     color: white;
-}
-#menue{
-    position: absolute;
-    height: 50px;
-    width: 96.18%;
-    background-color: #1BA261;
-    margin-left: 70px;
-    padding-left: 10px;
-}
-
-.ulClass2{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.liClass{
-    margin: 0px 15px 0px 15px;
-    padding: 12px 10px 10px 10px;
-    float: left;
-    font-size: 20px;
-    cursor: pointer;
-}
-.imgClass{
-    width: 400px;
-}
-.ulClass{
-    display: table-cell;
-    vertical-align: middle;
-}
-#addWidgetMenue{
-    display: table;
-    position: absolute;
-    z-index: 1;
-    left: 13%;
-    top: 10%;
-    width : 72%;
-    height : 200px;
-    background-color: white;
-    border: 1px solid gray;
-    padding-bottom: 5px;
-}
-
-.selectClass{
-    border: 3px solid lightseagreen;
-}
-.inputtd{
-    width: 150px;
-}
-.gridStyle{
-    position: absolute;
-    border: 1px solid rgb(212,212,212);
-    width: 100%;
-    height: 300px;
-}
-
-#graphTable{
-    width: 100%;
-    margin: auto;
-    text-align: center;
-}
-
-.scheduleTd{
-    border: 1px solid;
-    width: 110px;
-    height: 50px;
-    text-align: center;
-}
-
-html .login-wrap {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 300px;
-    background: #ecf0f1;
-    width: 350px;
-    border-radius: 5px;
-    box-shadow: 3px 3px 10px #333;
-    padding: 15px;
-}
-html .login-wrap h2 {
-    text-align: center;
-    font-weight: 200;
-    font-size: 2em;
-    margin-top: 10px;
-    color: #34495e;
-}
-html .login-wrap .form {
-    padding-top: 20px;
-}
-html .login-wrap .form input[type="text"],
-html .login-wrap .form input[type="password"],
-html .login-wrap .form button {
-    width: 80%;
-    margin-left: 10%;
-    margin-bottom: 25px;
-    height: 40px;
-    border-radius: 5px;
-    outline: 0;
-    -moz-outline-style: none;
-}
-html .login-wrap .form input[type="text"],
-html .login-wrap .form input[type="password"] {
-    border: 1px solid #bbb;
-    padding: 0 0 0 10px;
-    font-size: 14px;
-}
-html .login-wrap .form input[type="text"]:focus,
-html .login-wrap .form input[type="password"]:focus {
-    border: 1px solid #3498db;
-}
-html .login-wrap .form a {
-    text-align: center;
-    font-size: 10px;
-    color: #3498db;
-}
-html .login-wrap .form a p {
-    padding-bottom: 10px;
-}
-html .login-wrap .form button {
-    background: #e74c3c;
-    border: none;
-    color: white;
-    font-size: 18px;
-    font-weight: 200;
-    cursor: pointer;
-    transition: box-shadow .4s ease;
-}
-html .login-wrap .form button:hover {
-    box-shadow: 1px 1px 5px #555;
-}
-html .login-wrap .form button:active {
-    box-shadow: 1px 1px 7px #222;
-}
-html .login-wrap:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: -webkit-linear-gradient(left, #27ae60 0%, #27ae60 20%, #8e44ad 20%, #8e44ad 40%, #3498db 40%, #3498db 60%, #e74c3c 60%, #e74c3c 80%, #f1c40f 80%, #f1c40f 100%);
-    background: -moz-linear-gradient(left, #27ae60 0%, #27ae60 20%, #8e44ad 20%, #8e44ad 40%, #3498db 40%, #3498db 60%, #e74c3c 60%, #e74c3c 80%, #f1c40f 80%, #f1c40f 100%);
-    height: 5px;
-    border-radius: 5px 5px 0 0;
 }
