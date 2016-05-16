@@ -1,0 +1,30 @@
+<template name="MainBoard">
+    <div class="row MainContainer" style="margin-left: 250px;">
+        <div style="position: absolute; width: calc(100% - 40px); left: 50%; transform: translateX(-50%);">
+            <div class="col-md-8 test">
+                <div class="col-md-3" style="padding: 0px;">
+                    {{>MainPicture}}
+                </div>
+                <div class="col-md-6" style="padding: 0px;">
+                    {{>MainGraph}}
+                </div>
+                <div class="col-md-3" style="padding: 0px;">
+                    {{>MainAlbum}}
+                </div>
+            </div>
+            <div class="col-md-4 test" >
+                <div style="background-color: white; width: 100%; height: 300px;">
+                    여기는 유투브
+                </div>
+            </div>
+            <div class="col-md-6 test">
+                {{>MainMusicChart}}
+            </div>
+            <div class="col-md-6 test">
+                <div style="background-color: white; width: 100%; height: 400px;">
+                    여기는 sns
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
