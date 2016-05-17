@@ -1,6 +1,17 @@
 Session.setDefault("sideMenue","glyphicon glyphicon-chevron-left");
 Session.setDefault("sideHeight",window.outerHeight - 70);
 
+//멜론 API 인증
+$(document).ready(function(){
+  PlanetX.init({
+    appkey : '851b0a60-1a2a-3b84-afb6-f60d9b6bb60e',
+    client_id : "8cd1a504-afc1-3e13-a8f2-9201e35637f6",
+    scope : "melon",
+    savingToken : true
+  });
+  PlanetX.api( "get", "http://apis.skplanetx.com/melon/newreleases/albums?version=1&page=0&count=100", "JSON", { "version" : 1 }, function(data){console.log(data)} );;
+});
+
 Template.SideMenue.helpers({
   display : function() {return Session.get("sideMenue");},
   Navigation : sideMenueObject.Navigation,
