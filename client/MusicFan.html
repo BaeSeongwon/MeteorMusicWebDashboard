@@ -2,16 +2,9 @@
   <title>MusicFan</title>
 </head>
 <body>
-    {{> SideMenue}}
-    <div class="topBar">
-        <!--<button type="button" class="btn btn-primary" ng-click="main.login_start()" style="margin-left: 80%">로그인</button>-->
-        <div>
-            <div><strong style="font-size:18px;">탑 메인 타이틀</strong></div>
-            <div style="font-size:11px;">탑 서브 타이틀</div>
-        </div>
-    </div>
-    <div class="boardContainer">
-    </div>
-    <!--<div ng-repeat="logins in main.login"><login></login></div>-->
-    <!--<div ng-repeat="registers in main.registe._ok"><register></register></div>-->
 </body>
+<template name="Home">
+    {{> TopHeader}}
+    {{> SideMenue}}
+    {{> yield}}
+</template>
