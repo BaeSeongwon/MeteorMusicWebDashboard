@@ -1,5 +1,62 @@
 <template name="MainMusicChart">
-    <div style="background-color: white; width: 100%; height: 400px;">
-        여기는 멜론
+    <div id="musicContainer">
+        <nav class="navContainer">
+            <div class="container-fluid">
+                <div class="navbar-brand" style="float: left; font-size: 15px;"><strong>{{melonChartTitle}}</strong></div>
+                <div class="btn-group" style="float: right;">
+                    <a class="btn">차트</a>
+                    <a href="bootstrap-elements.html" data-target="#" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a>실시간 차트</a></li>
+                        <li><a>일간 차트</a></li>
+                        <li><a>앨범 차트</a></li>
+                        <li class="divider"></li>
+                        <li><a>최신 음악</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>곡정보</th>
+                    {{#if favoriteType}}
+                        <th>좋아요</th>
+                    {{else}}
+                        <th>발매일</th>
+                    {{/if}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#each MelonCharts}}
+                    <tr>
+                        <td id="albumNum">{{count}}</td>
+                        <td>
+                            <img src={{albumImg}} id="albumImg">
+                            <div>
+                                {{#if chartType}}
+                                    <div id="songName"><strong>{{albumName}}</strong></div>
+                                    <div>
+                                        <span id="albumArtist">{{artistName}}</span>
+                                        <em>|</em>
+                                        <span id="albumTitle">{{songName}}</span>
+                                    </div>
+                                {{else}}
+                                    <div id="songName"><strong>{{songName}}</strong></div>
+                                    <div>
+                                        <span id="albumArtist">{{artistName}}</span>
+                                        <em>|</em>
+                                        <span id="albumTitle">{{albumName}}</span>
+                                    </div>
+                                {{/if}}
+                            </div>
+                        </td>
+                        <td>{{favoriteScore}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <img class="pageTopButton" src="pageup.png" style="position: absolute; bottom: 20px; right: 30px; cursor: pointer">
     </div>
 </template>
