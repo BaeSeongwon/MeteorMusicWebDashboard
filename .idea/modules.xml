@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/MusicFan.iml" filepath="$PROJECT_DIR$/.idea/MusicFan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MeteorMusicWebDashboard2.iml" filepath="$PROJECT_DIR$/.idea/MeteorMusicWebDashboard2.iml" />
     </modules>
   </component>
 </project>

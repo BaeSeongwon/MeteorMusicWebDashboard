@@ -1,1 +1,169 @@
 /* CSS declarations go here */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+html{
+    height: 100%;
+}
+
+body{
+    font-family: "Nanum Gothic", sans-serif;
+    height:100%;
+}
+
+.sideMenue-panel{
+    color: #FFFFFF;
+    padding:15px 30px 15px 25px;
+    cursor: default;
+}
+
+.sideMenue-panel-item{
+    cursor: pointer;
+}
+
+.sideMenue-panel-item:hover{
+    background-color: #D2C19C;
+}
+
+#sideMenue{
+    width: 250px;
+    height: calc(100% - 70px);
+    background-color: #30426A;
+    float: left;
+}
+
+.topBar{
+    width:100%;
+    height: 70px;
+    padding: 10px 25px 10px 25px;;
+    background-color: white;
+}
+
+.sideSize{
+    position: relative;
+    height: 35px;
+    padding-top: 10px;
+}
+
+#contentsContainer{
+    width: 100%;
+    float: right;
+}
+
+#sideItem{
+    color: #B2BFC6;
+    font-size: 15px;
+}
+
+#Nav{
+    color: #6077A9;
+}
+
+.boardContainer{
+    padding: 90px 20px 20px 20px;
+    margin-left: 250px;
+    height: 100%;
+    background-color: #EBEEF0;
+}
+
+.sideMargin{
+    padding-left: 20px;
+    padding-right:50px;
+    color: #B2BFC6;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.sideMenueImg{
+    position: absolute;
+    right: 32px;
+    top: 11px;
+}
+
+.sideUlclass{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.sideMainfont{
+    font-size: 20px;
+}
+
+#sideMainimg{
+    cursor: pointer;
+    position: absolute;
+    right: 40px;
+    top: 25px;
+}
+
+.profileName{
+    font-size: 13px;
+    color: #DFE4ED;
+}
+
+.profileteam{
+    font-size: 12px;
+    color: #7D93A5;
+}
+
+#sideMainimg:hover{
+    color: #D2D29C;
+}
+
+.MainContainer{
+    padding: 20px 20px 20px 20px;
+    position: absolute;
+    width: calc(100% - 250px);
+    min-height: calc(100% - 70px);
+}
+
+.test{
+    padding: 10px 10px 10px 10px;
+}
+
+.sideMain{
+    padding: 10px 25px 10px 25px;
+    background-color: #2D3E63;
+    color: white;
+}
+
+/*여기는 위젯 Nav 바*/
+.navContainer{
+    height:50px;
+}
+.navTitle{
+    color: black;
+    padding: 8px 0px 8px 0px;
+}
+
+
+/*차트 css*/
+#albumNum{
+    padding: 20px 0px 0px 15px;
+    margin-right: 20px;
+}
+
+#albumImg{
+    float: left;
+    margin-right: 20px;
+}
+
+#songName{
+    color: darkslategray;
+}
+
+#albumArtist{
+    color: limegreen;
+    padding-right: 4px;
+}
+
+.pageTopButton{
+    display: none;
+}
+
+#musicContainer{
+    background-color: white;
+    width:100%;
+    height:400px;
+    overflow: auto;
+}
