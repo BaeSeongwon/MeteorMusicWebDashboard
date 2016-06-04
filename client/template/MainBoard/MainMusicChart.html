@@ -1,5 +1,5 @@
 <template name="MainMusicChart">
-    <div id="musciChartContainer" style="background-color: white; width: 100%; height: 400px; overflow: auto;">
+    <div id="musicContainer">
         <nav class="navContainer">
             <div class="container-fluid">
                 <div class="navbar-brand" style="float: left; font-size: 15px;"><strong>{{melonChartTitle}}</strong></div>
@@ -21,7 +21,11 @@
                 <tr>
                     <th>No</th>
                     <th>곡정보</th>
-                    <th>좋아요</th>
+                    {{#if favoriteType}}
+                        <th>좋아요</th>
+                    {{else}}
+                        <th>발매일</th>
+                    {{/if}}
                 </tr>
             </thead>
             <tbody>
@@ -31,19 +35,28 @@
                         <td>
                             <img src={{albumImg}} id="albumImg">
                             <div>
-                                <div id="songName"><strong>{{songName}}</strong></div>
-                                <div>
-                                    <span id="albumArtist">{{artistName}}</span>
-                                    <em>|</em>
-                                    <span id="albumTitle">{{albumName}}</span>
-                                </div>
+                                {{#if chartType}}
+                                    <div id="songName"><strong>{{albumName}}</strong></div>
+                                    <div>
+                                        <span id="albumArtist">{{artistName}}</span>
+                                        <em>|</em>
+                                        <span id="albumTitle">{{songName}}</span>
+                                    </div>
+                                {{else}}
+                                    <div id="songName"><strong>{{songName}}</strong></div>
+                                    <div>
+                                        <span id="albumArtist">{{artistName}}</span>
+                                        <em>|</em>
+                                        <span id="albumTitle">{{albumName}}</span>
+                                    </div>
+                                {{/if}}
                             </div>
                         </td>
-                        <td>test</td>
+                        <td>{{favoriteScore}}</td>
                     </tr>
                 {{/each}}
             </tbody>
         </table>
-        <a href=""><img class="pageTopButton" src="pageup.png" style="position: absolute; bottom: 20px; right: 30px;"></a>
+        <img class="pageTopButton" src="pageup.png" style="position: absolute; bottom: 20px; right: 30px; cursor: pointer">
     </div>
 </template>

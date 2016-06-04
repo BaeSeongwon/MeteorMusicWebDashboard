@@ -10,15 +10,6 @@ $(document).ready(function(){
     scope : "melon",
     savingToken : true
   });
-
-  $("#musciChartContainer").scroll(function(){
-    console.log("실행");
-    if($('#musciChartContainer').scrollTop() > 200){
-      $('.pageTopButton').fadeIn();
-    }else{
-      $('.pageTopButton').fadeOut();
-    }
-  });
 });
 
 Template.SideMenue.helpers({
@@ -51,7 +42,17 @@ Template.SideMenue.events({
 
 Template.MainMusicChart.helpers({
   melonChartTitle : function(){return Session.get("MelonChartTitle")},
-  MelonCharts : function(){return Session.get("MelonChart")}
+  MelonCharts : function(){return Session.get("MelonChart")},
+  chartType : function(){
+    if(Session.get("MelonChartTitle") == "앨범"){
+      return true;
+    }
+  },
+  favoriteType : function(){
+    if(Session.get("MelonChartTitle") == "최신"){
+      return true;
+    };
+  }
 });
 
 Template.MainMusicChart.events({
@@ -59,12 +60,12 @@ Template.MainMusicChart.events({
     var target = event.target.innerText;
     switch(target){
       case "실시간 차트":{
-        MelonCall(callMelonAddress.realTimeMusic,callMelonAddress.realTimeMusicChart);
+        MelonCall(callMelonAddress.realTimeMusic,callMelonAddress.realTimeTodayMusicChart);
         Session.set("MelonChartTitle","실시간");
         break;
       }
       case "일간 차트":{
-        MelonCall(callMelonAddress.today,callMelonAddress.todayChart);
+        MelonCall(callMelonAddress.today,callMelonAddress.realTimeTodayMusicChart);
         Session.set("MelonChartTitle","일간");
         break;
       }
@@ -79,6 +80,16 @@ Template.MainMusicChart.events({
         break;
       }
     }
+  },
+  'scroll #musicContainer' : function(event) {
+    if(event.target.scrollTop > 1000){
+      $(".pageTopButton").fadeIn();
+    }else{
+      $('.pageTopButton').fadeOut();
+    }
+  },
+  'click .pageTopButton' : function() {
+    $('#musicContainer').animate({scrollTop:0},450);
   }
 });
 
@@ -120,4 +131,3 @@ function profileDropdownAnimation(){
 function MelonCall(Adress,call){
   PlanetX.api("get",Adress,"JSON",{"version" : 1}, function(data){call(data)});
 };
-
