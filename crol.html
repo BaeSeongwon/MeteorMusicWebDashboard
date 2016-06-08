@@ -1,0 +1,218 @@
+<body>
+{{>ctrl}}
+{{>news}}
+</body>
+
+<template name="news">
+    <script type="text/javascript">
+        jQuery.ajax = (function(_ajax){
+            var protocol = location.protocol,
+                    hostname = location.hostname,
+                    exRegex = RegExp(protocol + '//' + hostname),
+                    YQL = 'http' + (/^https/.test(protocol)?'s':'') + '://query.yahooapis.com/v1/public/yql?callback=?',
+                    query = 'select * from xml where url="{URL}"';
+            function isExternal(url) {
+                return !exRegex.test(url) && /:\/\//.test(url);
+            }
+            return function(o) {
+                var url = o.url;
+                if ( /get/i.test(o.type) && !/json/i.test(o.dataType) && isExternal(url) ) {
+                    // Manipulate options so that JSONP-x request is made to YQL
+                    o.url = YQL;
+                    o.dataType = 'json';
+                    o.data = {
+                        q: query.replace(
+                                '{URL}',
+                                url + (o.data ?
+                                (/\?/.test(url) ? '&' : '?') + jQuery.param(o.data)
+                                        : '')
+                        ),
+                        format: 'xml'
+                    };
+                    // Since it's a JSONP request
+                    // complete === success
+                    if (!o.success && o.complete) {
+                        o.success = o.complete;
+                        delete o.complete;
+                    }
+                    o.success = (function(_success){
+                        return function(data) {
+
+                            if (_success) {
+                                // Fake XHR callback.
+                                _success.call(this, {
+                                    responseText: (data.results[0] || '')
+                                    // YQL screws with <script>s
+                                    // Get rid of them
+                                            .replace(/<script[^>]+?\/>|<script(.|\s)*?\/script>/gi, '')
+                                }, 'success');
+                            }
+
+                        };
+                    })(o.success);
+                }
+                return _ajax.apply(this, arguments);
+            };
+        })(jQuery.ajax);
+    </script>
+
+    <script type="text/javascript">
+        /** 구글 뉴스 데이터를 불러와서 화면에 출력하는 함수 */
+        function getNewsList(topic) {
+            // 접속할 주소
+            var url = "https://news.google.com/news/feeds";
+            // 구글에서 요구하는 파라미터
+            var data = {
+                "pz" : 1,
+                "cf" : "all",
+                "ned" : "kr",
+                "hl" : "ko",
+                // 이 값이 변하면 데이터가 변경된다.
+                "topic" : topic,
+                "output" : "rss"
+            };
+            // get방식으로 Ajax 크로스 도메인 요청
+            $.get(url, data, function(data) {
+                // XML 본문 추출
+                var xml = data.responseText;
+                // XML을 jQuery객체로 변환한 뒤, item태그 단위로 반복
+                $(xml).find("item").each(function() {
+                    // 각 태그 안에서 텍스트 추출
+                    // .replace(...) 은 HTML태그를 제거하는 기능(정규표현식)
+                    var title = $(this).find("title").text().replace(/(<([^>]+)>)/ig, "");
+                    var description = $(this).find("description").text().replace(/(<([^>]+)>)/ig, "");
+                    var pubDate = $(this).find("pubDate").text();
+                    // 요소의 동적 생성과
+                    var li = $("<li>");
+                    var span1 = $("<span>").addClass("text");
+                    var span2 = $("<span>").addClass("title").html(title);
+                    var span3 = $("<span>").addClass("pubDate").html(pubDate);
+                    var span4 = $("<span>").addClass("desc").html(description);
+                    // 조립한다.
+                    var item = li.append(span1.append(span2).append(span3).append(span4));
+                    // 출력
+                    $("#list").append(item);
+                });
+            });
+        }
+        $(function() {
+            // 페이지가 열리면 기본적으로 현재 선택되어 있는 항목에 대한 로딩
+            getNewsList($("#topic > option:selected").val());
+            // 드롭다운의 선택항목이 변경된 경우...
+            $("#topic").change(function() {
+                // 이전 검색결과 삭제
+                $("#list").empty();
+                // 선택항목의 value값을 획득해서 ajax 연동을 구현한 함수에게 전달
+                getNewsList($(this).find("option:selected").val());
+            });
+        });
+    </script>
+
+    <h1 class="title">구글 뉴스 연동</h1>
+    <div class="exec">
+        <form name="form1">
+            <fieldset>
+                <label for="topic">뉴스분야 선택</label>
+                <select name="topic" id="topic">
+                    <option value="">주요뉴스</option>
+                    <option value="p">정치</option>
+                    <option value="b">경제</option>
+                    <option value="y">사회</option>
+                    <option value="l">문화/생활</option>
+                    <option value="w">국제</option>
+                    <option value="t">과학기술</option>
+                    <option value="e">연예</option>
+                    <option value="s">스포츠</option>
+                </select>
+            </fieldset>
+        </form>
+    </div>
+    <ul id="list"></ul>
+</template>
+
+<template name="ctrl">
+    <form name="f1" action="" onSubmit="if(this.t1.value!=null && this.t1.value!='')
+
+findString(this.t1.value);return false">
+
+        <input type="text" name=t1 value="" size=20>
+
+        <!--<input type="submit" name=b1>-->
+
+    </form>
+
+
+
+    <script language="JavaScript">
+
+        <!--
+
+        var TRange=null
+
+
+
+        function findString (str) {
+
+            if (parseInt(navigator.appVersion)<4) return;
+
+            var strFound;
+
+            if (navigator.appName=="Netscape") {
+
+
+
+                // NAVIGATOR-SPECIFIC CODE
+
+
+
+                strFound=self.find(str);
+
+                if (!strFound) {
+
+                    strFound=self.find(str,0,1)
+
+                    while (self.find(str,0,1)) continue
+
+                }
+
+            }
+
+            if (navigator.appName.indexOf("Microsoft")!=-1) {
+
+
+
+                // EXPLORER-SPECIFIC CODE
+
+
+
+                if (TRange!=null) {
+
+                    TRange.collapse(false)
+
+                    strFound=TRange.findText(str)
+
+                    if (strFound) TRange.select()
+
+                }
+
+                if (TRange==null || strFound==0) {
+
+                    TRange=self.document.body.createTextRange()
+
+                    strFound=TRange.findText(str)
+
+                    if (strFound) TRange.select()
+
+                }
+
+            }
+
+            if (!strFound) alert ("String '"+str+"' not found!")
+
+        }
+
+        //-->
+
+    </script>
+
+</template>
