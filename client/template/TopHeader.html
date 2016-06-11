@@ -2,11 +2,18 @@
     <div class="topBar">
         <div>
             <div style="float: left;">
-                <div><strong style="font-size:18px;">탑 메인 타이틀</strong></div>
+                <div><strong style="font-size:18px;">Music fan</strong></div>
                 <div style="font-size:11px;">탑 서브 타이틀!</div>
             </div>
-            <div style="text-align: center; margin-top: 10px; float: right; width: 80px; height: 30px; border-radius: 10px; background-color: darkslategrey; color: #D0D0B0;">
-                로그인 자리
+            <div style="float: right;">
+                <input type="checkbox">음성인식
+                <div style="float: left; margin-top: 16px; margin-right: 20px;">
+                    {{> loginButtons}}
+                </div>
+                <div class="form-group form-group label-floating is-empty" style="float:right; margin: 12px 0 0 0;">
+                    <label for="i4" class="control-label">Search</label>
+                    <input id="searchInput" type="text" class="form-control">
+                </div>
             </div>
         </div>
     </div>
