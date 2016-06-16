@@ -1,5 +1,5 @@
 <template name="MainBoard">
-    <div class="row MainContainer" style="margin-left: 250px;">
+    <div class="row MainContainer" style="margin-left: 250px; background-color: #eeeeee;">
         <div style="position: absolute; width: calc(100% - 40px); left: 50%; transform: translateX(-50%);">
             <div class="col-md-8 test">
                 <div class="col-md-3" style="padding: 0px;">
@@ -25,6 +25,15 @@
                     여기는 sns
                 </div>
             </div>
+        </div>
+        <div class="imagePopup">
+            <span id="delPopup" class="glyphicon glyphicon-remove" style="cursor: pointer; float: right; font-size: 15px"></span>
+            <h1>{{title}}</h1>
+            {{#each Img}}
+                <div class="imgBox" style="cursor: pointer; float: left; padding: 5px;">
+                    <img class="imgBorder" src={{src}}>
+                </div>
+            {{/each}}
         </div>
     </div>
 </template>
