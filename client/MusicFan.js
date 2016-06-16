@@ -2,6 +2,11 @@ Session.setDefault("sideMenue","glyphicon glyphicon-chevron-left");
 Session.setDefault("sideHeight",window.outerHeight - 70);
 Session.setDefault("MelonChartTitle","실시간");
 Session.setDefault('choiceImg');
+<<<<<<< HEAD
+=======
+Session.setDefault('singer');
+Session.setDefault('albumList');
+>>>>>>> feature/Daum_ImgSearch
 
 //멜론 API 인증
 Meteor.startup(function(){
@@ -137,6 +142,7 @@ Template.MainMusicChart.events({
   },
   'click .pageTopButton' : function() {
     $('#musicContainer').animate({scrollTop: 0}, 500);
+<<<<<<< HEAD
   }
 });
 
@@ -150,6 +156,37 @@ Template.MainPicture.helpers({
 function stringImgEqualse(data){
   var imgData = Session.get('thumNail');
   console.log(imgData);
+=======
+  }
+});
+
+Template.MainPicture.helpers({
+  src : function(){
+    return Session.get('choiceImg');
+  }
+});
+
+Template.MainAlbum.helpers({
+  albumList : function(){
+    if(Session.get("singer")){
+      searchArtist(callMelonAddress.searchArtist, Session.get('singer'));
+    };
+    return Session.get('fullAlbumList');
+  },
+  Title : function(){
+    return Session.get('singer');
+  }
+});
+
+Template.MainAlbum.events({
+  'click #albumInfo' : function(){
+    console.log(event.target.text);
+  }
+});
+
+function stringImgEqualse(data){
+  var imgData = Session.get('thumNail');
+>>>>>>> feature/Daum_ImgSearch
   for(var a in imgData){
     if(imgData[a].src == data){
       return Session.set("choiceImg",imgData[a].Img);
@@ -205,3 +242,96 @@ function profileDropdownAnimation(){
 function MelonCall(Adress,call){
   PlanetX.api("get",Adress,"JSON",{"version" : 1}, function(data){call(data)});
 };
+
+function searchArtist(Address,singer){
+  var url = Address + singer;
+  PlanetX.api("get",url,"JSON",{'version' : 1}, function(data){
+    Session.set('singerId',data.melon.artists.artist[0].artistId);
+    var singerName = data.melon.artists.artist[0].artistName;
+    choiceSinger.albumList = [];
+    searchAlbum(singerName);
+  });
+};
+
+function searchAlbum(singerName){
+  var pageCount = 1;
+  Session.setDefault('totalPage');
+  Session.set('albumList');
+  callAlbum(pageCount,singerName);
+};
+
+function callAlbum(pageCount,singerName){
+  var url = "http://apis.skplanetx.com/melon/albums?version=1&page=" + pageCount + "&count=50&searchKeyword=" + singerName;
+  PlanetX.api("get",url,"JSON",{'version':1},function(data){
+    Session.set('totalPage',data.melon.totalPages);
+    if(pageCount > Session.get('totalPage')){
+      Session.set('albumList',choiceSinger.albumList);
+
+      makeAlbum();
+      return;
+    }
+    choiceSinger.albumList.push(data);
+    callAlbum(pageCount+1,singerName);
+  });
+}
+
+function makeAlbum(){
+  var data = Session.get('albumList');
+  var fullAlbumList = [];
+  var count = 1;
+  for(var a in data) {
+    var melon = data[a].melon.albums.album;
+    for (var b in melon) {
+      if(melon[b].artists.artist[0].artistId == Session.get('singerId')){
+        melon[b].count = count;
+        melon[b].img = callMelonAddress.albumImgFilter(melon[b].albumId);
+        fullAlbumList.push(melon[b]);
+        ++count;
+      }
+    }
+  }
+  Session.set('fullAlbumList',fullAlbumList);
+  activityGraph(fullAlbumList);
+};
+
+function activityGraph(likeAlbums) {
+  // console.log(likeAlbums);
+  var pilmograpy = [];
+  var count = [];
+  var judge = 0;
+  for (var i in likeAlbums) {
+    if (pilmograpy == false) {
+      pilmograpy.push({year: likeAlbums[i].issueDate.substring(0, 4), count: 1});
+    } else {
+      for (var a in pilmograpy) {
+        if (pilmograpy[a].year == likeAlbums[i].issueDate.substring(0, 4)) {
+          ++judge;
+          pilmograpy[a].count += judge;
+        }
+      }
+      if (judge == 0) {
+        pilmograpy.push({year: likeAlbums[i].issueDate.substring(0, 4), count: 1});
+      }
+      judge = 0;
+    }
+  }
+
+  pilmograpy.sort(function (a, b) {
+    return a.year < b.year ? -1 : a.year > b.year ? 1 : 0;
+  });
+
+  for (var a = 2005; a <= 2016; a++) {
+    for (var i in pilmograpy) {
+      if (pilmograpy[i].year == a) {
+        ++judge;
+        count.push(pilmograpy[i].count);
+      }
+    }
+    if (judge == 0) {
+      count.push(0);
+    }
+    judge = 0;
+  }
+  console.log(count);
+  Session.set('albumGraph',count);
+}

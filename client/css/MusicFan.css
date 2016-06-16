@@ -193,4 +193,13 @@ body{
 
 .imgBorder{
     border: 2px;
+<<<<<<< HEAD
+=======
+}
+
+.pannelTitle{
+    padding:10px 15px;
+    color: white;
+    background-color: #5B5B5B;
+>>>>>>> feature/Daum_ImgSearch
 }
