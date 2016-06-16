@@ -54,8 +54,6 @@ Then, run this script to get the list.
 
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
-/* CSS declarations go here */
-
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -12719,6 +12717,14 @@ hr.on-light {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAq0lEQVQ4jWP8//8/AyWAhYGBgcEmauYZBgYGYxL1nj2yLN2ECcohVTNcDwsxKlXlhRm6yzwZRAS5GRgYGBhsombC5ZhwaUIGyJrRAVEuwGYzSS7AB/C64MiydKx8ZJfgNeDN+68MDAwIL8D4RLsgIHsJis0wPjKgOAyoE4hcnGwMGkpiBBUbacvA2TfuvaKiC759/3X23NUnOPMDtgTEwMBwloGBgYGR0uwMAGOPLJS9mkQHAAAAAElFTkSuQmCC);
 }
 
+#login-buttons-image-twitter {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAByklEQVQ4jaVTz0sbQRh92V10l006GaKJCtEtmqMYU0Qpwqb4B6zgXdT0WEr7B0ih4MGLP05CUWMvHkQwglhvGhsvKmJOBhTUQjWU2slilKarrAfdZROTQ8m7fPMx33szb75vXKZpohpwVbEBCNaCMUYopXppAWOMxDNsOPf3H1WIeDoSURYYYwQAKKW6y7KgLe2vam11KyMRZcEpEP6SOkwbUgc4ATAKUF8YW2fXhZejvaHPsc7gvH2DnCfQGEtdxrd/5NRJteUDpVTf+5kLp2WlA6JsCyZv9ChplPKdTfJZkYWhEF3bvnV3fb36NZSY3dP6Q/5V4hFvIAaKPckE8W5pLBIQdwHAthBdPtpJuhpeAwDu74DrP4/R1/Ts4cwBWg/gN+DowoSqTBPezAMAeAHw+suSw4Q7schFApF6af19a+2yLVIB7xR+0Zk75yCveu82FMnMViKHCXcSa3PPVBJAX5BszL2SP2kNwvdy5M1e+S2AogME4HFYPibPpxKZC03nRAp/M+Dx2UWDzTXfpttrx72ikCoVtrrAAwgdXBk9iazxxtpskfhs1O86aHXXpAEcA7ivJGDBDcDnyAsA2FMsi1KB/0bVv/EBBBSY9mZ7PAsAAAAASUVORK5CYII=);
+}
+
+#login-buttons-image-google {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAADCklEQVQ4jSXSy2ucVRjA4d97zvdNJpPJbTJJE9rYaCINShZtRCFIA1bbLryBUlyoLQjqVl12W7UbN4qb1gtuYhFRRBCDBITaesFbbI3RFBLSptEY05l0ZjLfnMvrov/Bs3gAcF71x6VVHTk+o8nDH+hrH89rUK9Z9Yaen57S3wVtGaMBNGC0IegWKIDxTtVaOHVugZVmH3HX3Zz+4l+W1xvkOjuZfPsspY4CNkZELEgEIJKwYlBjEwjec/mfCMVuorVs76R8+P0KYMmP30U2dT8eIZqAR2ipRcWjEYxGSCRhV08e04oYMoxYLi97EI9YCJ0FHBYbIVGDlUBLwRlLIuYW6chEmQt/rJO09RJjhjEJEYvJYGNhkbUhw43OXtIWDFRq9G87nAaSK6sVRm8r8fzRMWbOX2Xx7ypd7ZET03sQhDOz73DqSJOrd+7HSo4QIu0Nx/4rOzx+cRXZ9+z7+uqJ+3hiepxK3fHZT2tMjXYzOtzL6dmznPzhLexgN0QlxAAYxAlqUqRmkf5j59RlNQ6MFHhgcpCTTx8EUb5e+plD7x4jjg1ANCAgrRQAdR7xKXjBlGyLYi7PxaUmb8z8xcpGHVXLHaXdjI0egKyJiQYTEhSPREVIEUBNC+Mqm+xpz3j0njLPHB2nsh1QgeG+IS48dYbD5YNoo0ZUAbVEuTUoKuBSZOarX/WhyQn6eg2+usDWf0s0tq8zNPYk+WI/Lnge++hlvlyfQ3NdECzGRWKwEEA0qNY251n69kV6+Y0kbaCZoebG2X3oU7pKoyxuXOPe945zs9DCeosGIXoBDyaLdf6ce4Hbk+/Y299ksKtAuaeNsiyw8c1LKIZ95b0MdgxA5giixACpTxEPSau6QdFfI5/2cLPmEW+JAQrtJUJzDXF1dkwHzVodJMX4HFEcQQMaFdPeM0Jb/4PUtzzaLKAhRyJFwo6lbegRNFfk819muV5dR4JBQoQdQ2xFiDmSNDHiaptamR9Gq5cQ18AledrGDpOfeI5Lq8u88smbhMRisoSAgAYghdfn5H/JkHuRZ1owLAAAAABJRU5ErkJggg==);
+}
+
 html {
   height: 100%;
 }
@@ -12881,15 +12887,42 @@ body {
   display: none;
 }
 
-html {
+#musicContainer {
+  background-color: white;
+  width: 100%;
+  height: 400px;
+  overflow: auto;
+}
+
+.popupBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: .5;
+  z-index: 1024;
+  display: none;
+}
+
+.imagePopup {
+  position: absolute;
+  width: 600px;
+  height: 700px;
+  left: 50%;
+  margin-left: -350px;
+  background-color: white;
+  display: none;
+  z-index: 1025;
   padding: 10px;
-  font-family: Verdana, sans-serif;
+  overflow: auto;
 }
 
-.login-buttons-dropdown-align-right {
-  float: right;
+.imgBorder {
+  border: 2px;
 }
 
-.psb {
-  color: red;
+.pannelTitle {
+  padding: 10px 15px;
+  color: white;
+  background-color: #5B5B5B;
 }

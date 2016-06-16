@@ -9,6 +9,8 @@ parseInt = Package['es5-shim'].parseInt;
 ECMAScript = Package.ecmascript.ECMAScript;
 Router = Package['iron:router'].Router;
 RouteController = Package['iron:router'].RouteController;
+HTTP = Package.http.HTTP;
+HTTPInternals = Package.http.HTTPInternals;
 Meteor = Package.meteor.Meteor;
 WebApp = Package.webapp.WebApp;
 main = Package.webapp.main;
@@ -29,6 +31,7 @@ Promise = Package.promise.Promise;
 Iron = Package['iron:core'].Iron;
 Accounts = Package['accounts-base'].Accounts;
 AccountsServer = Package['accounts-base'].AccountsServer;
+FS = Package['cfs:base-package'].FS;
 Autoupdate = Package.autoupdate.Autoupdate;
 HTML = Package.htmljs.HTML;
 

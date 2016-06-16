@@ -1,13 +1,7 @@
 (function(){
 Template.body.addContent((function() {
   var view = this;
-  return Blaze._TemplateWith(function() {
-    return {
-      align: Spacebars.call("left")
-    };
-  }, function() {
-    return Spacebars.include(view.lookupTemplate("loginButtons"));
-  });
+  return HTML.Raw('<div class="popupBackground"></div>');
 }));
 Meteor.startup(Template.body.renderToDocument);
 

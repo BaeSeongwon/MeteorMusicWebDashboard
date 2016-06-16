@@ -431,6 +431,8 @@ if (Meteor.isClient) {                                                 // 1
             window.PlanetX = new PlanetX();                            // 423
         })(jQuery, window));                                           //
     });                                                                //
+} else {                                                               //
+    Meteor.startup(function () {});                                    // 428
 }                                                                      //
 /////////////////////////////////////////////////////////////////////////
 

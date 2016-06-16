@@ -1,0 +1,21 @@
+<template name="FavoriteBoard">
+    <div class="row MainContainer" style="margin-left: 250px; background-color: ghostwhite;">
+        <div style="position: absolute; width: calc(100% - 40px); left: 50%; transform: translateX(-50%);">
+            <div class="form-group has-warning" style="width: calc(100% - 50%); display: inline-block;">
+                <label class="control-label" for="inputWarning">메시지를 입력하세요!</label>
+                <input type="text" id="inputWarning" class="form-control">
+            </div>
+            <input type="file" id="fileupload" class="myFileInput" style="display: inline-block;">
+            <div>
+                <div class="jumbotron" style="float: left; overflow:scroll; width: calc(100% - 50%);">
+                    {{>messages}}
+                </div>
+                <div  style="float: right; overflow:scroll; width: calc(100% - 50%); background-color:whitesmoke;">
+                    {{>inputimage}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</template>

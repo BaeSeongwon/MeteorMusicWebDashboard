@@ -274,7 +274,7 @@
       "path": "packages/iron_controller.js"
     },
     {
-      "node_modules": "/C/Users/Parksubin/AppData/Local/.meteor/packages/iron_router/1.0.12/npm/node_modules",
+      "node_modules": "/C/Users/Parksubin/AppData/Local/.meteor/packages/iron_router/1.0.13/npm/node_modules",
       "sourceMap": "packages/iron_router.js.map",
       "path": "packages/iron_router.js"
     },
@@ -350,8 +350,62 @@
       "path": "packages/accounts-facebook.js"
     },
     {
+      "sourceMap": "packages/mvrx_bluebird.js.map",
+      "path": "packages/mvrx_bluebird.js"
+    },
+    {
+      "sourceMap": "packages/adrianliaw_youtube-iframe-api.js.map",
+      "path": "packages/adrianliaw_youtube-iframe-api.js"
+    },
+    {
+      "sourceMap": "packages/cfs_standard-packages.js.map",
+      "path": "packages/cfs_standard-packages.js"
+    },
+    {
+      "sourceMap": "packages/cfs_base-package.js.map",
+      "path": "packages/cfs_base-package.js"
+    },
+    {
       "sourceMap": "packages/livedata.js.map",
       "path": "packages/livedata.js"
+    },
+    {
+      "sourceMap": "packages/mongo-livedata.js.map",
+      "path": "packages/mongo-livedata.js"
+    },
+    {
+      "sourceMap": "packages/raix_eventemitter.js.map",
+      "path": "packages/raix_eventemitter.js"
+    },
+    {
+      "node_modules": "/C/Users/Parksubin/AppData/Local/.meteor/packages/cfs_storage-adapter/0.2.3/npm/node_modules",
+      "sourceMap": "packages/cfs_storage-adapter.js.map",
+      "path": "packages/cfs_storage-adapter.js"
+    },
+    {
+      "node_modules": "/C/Users/Parksubin/AppData/Local/.meteor/packages/cfs_filesystem/0.1.2/npm/node_modules",
+      "sourceMap": "packages/cfs_filesystem.js.map",
+      "path": "packages/cfs_filesystem.js"
+    },
+    {
+      "sourceMap": "packages/oauth1.js.map",
+      "path": "packages/oauth1.js"
+    },
+    {
+      "sourceMap": "packages/twitter.js.map",
+      "path": "packages/twitter.js"
+    },
+    {
+      "sourceMap": "packages/accounts-twitter.js.map",
+      "path": "packages/accounts-twitter.js"
+    },
+    {
+      "sourceMap": "packages/google.js.map",
+      "path": "packages/google.js"
+    },
+    {
+      "sourceMap": "packages/accounts-google.js.map",
+      "path": "packages/accounts-google.js"
     },
     {
       "sourceMap": "packages/hot-code-push.js.map",
@@ -360,6 +414,61 @@
     {
       "sourceMap": "packages/launch-screen.js.map",
       "path": "packages/launch-screen.js"
+    },
+    {
+      "node_modules": "/C/Users/Parksubin/AppData/Local/.meteor/packages/cfs_data-man/0.0.6/npm/node_modules",
+      "sourceMap": "packages/cfs_data-man.js.map",
+      "path": "packages/cfs_data-man.js"
+    },
+    {
+      "node_modules": "/C/Users/Parksubin/AppData/Local/.meteor/packages/cfs_file/0.1.17/npm/node_modules",
+      "sourceMap": "packages/cfs_file.js.map",
+      "path": "packages/cfs_file.js"
+    },
+    {
+      "node_modules": "/C/Users/Parksubin/AppData/Local/.meteor/packages/cfs_tempstore/0.1.5/npm/node_modules",
+      "sourceMap": "packages/cfs_tempstore.js.map",
+      "path": "packages/cfs_tempstore.js"
+    },
+    {
+      "sourceMap": "packages/cfs_http-methods.js.map",
+      "path": "packages/cfs_http-methods.js"
+    },
+    {
+      "sourceMap": "packages/cfs_http-publish.js.map",
+      "path": "packages/cfs_http-publish.js"
+    },
+    {
+      "sourceMap": "packages/cfs_access-point.js.map",
+      "path": "packages/cfs_access-point.js"
+    },
+    {
+      "sourceMap": "packages/cfs_reactive-property.js.map",
+      "path": "packages/cfs_reactive-property.js"
+    },
+    {
+      "sourceMap": "packages/cfs_reactive-list.js.map",
+      "path": "packages/cfs_reactive-list.js"
+    },
+    {
+      "sourceMap": "packages/cfs_power-queue.js.map",
+      "path": "packages/cfs_power-queue.js"
+    },
+    {
+      "sourceMap": "packages/cfs_upload-http.js.map",
+      "path": "packages/cfs_upload-http.js"
+    },
+    {
+      "sourceMap": "packages/cfs_collection.js.map",
+      "path": "packages/cfs_collection.js"
+    },
+    {
+      "sourceMap": "packages/cfs_collection-filters.js.map",
+      "path": "packages/cfs_collection-filters.js"
+    },
+    {
+      "sourceMap": "packages/cfs_worker.js.map",
+      "path": "packages/cfs_worker.js"
     },
     {
       "sourceMap": "packages/autoupdate.js.map",
@@ -377,20 +486,16 @@
       "path": "app/lib/melon.js"
     },
     {
+      "sourceMap": "app/lib/method.js.map",
+      "path": "app/lib/method.js"
+    },
+    {
       "sourceMap": "app/lib/object.js.map",
       "path": "app/lib/object.js"
     },
     {
-      "sourceMap": "app/demo/demo.js.map",
-      "path": "app/demo/demo.js"
-    },
-    {
-      "sourceMap": "app/demo/input.js.map",
-      "path": "app/demo/input.js"
-    },
-    {
-      "sourceMap": "app/demo/messages.js.map",
-      "path": "app/demo/messages.js"
+      "sourceMap": "app/server/messagedb.js.map",
+      "path": "app/server/messagedb.js"
     }
   ]
 }

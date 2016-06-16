@@ -1,0 +1,63 @@
+<template name="TopHeader">
+    <div class="topBar">
+        <div>
+            <div style="float: left;">
+                <div><strong style="font-size:18px;">Music fan</strong></div>
+                <div style="font-size:11px;">탑 서브 타이틀!</div>
+            </div>
+            <div style="float: right;">
+                <div id="speechbbbbox">
+                <input type="button">음성인식
+                </div>
+                <script>
+                    console.log("sdad");
+                    if(!('webkitSpeechRecognition' in window)) $('#speechbbbbox').html('<strong>지원하지 않는 브라우저입니다.</strong>');
+                    else {
+                        var mic = new webkitSpeechRecognition();
+                        mic.continuous = true;
+                        mic.interimResults = true;
+                        mic.lang = 'ko-KR';
+                        mic.onresult = function(e) {
+                            var b = '', c = false;
+                            for(var i = e.resultIndex; i < e.results.length; ++i) {
+                                b += e.results[i][0].transcript;
+                                c = e.results[i].isFinal;
+                            }
+                            if($('#speechbbbbox .cning').length < 1)
+                                $('#speechbbbbox .cning').text(b);
+                            if(c) $('#speechbbbbox .cning').removeClass('cning');
+
+                            if(c==true)
+                            {
+                                console.log(b);
+                                $(document).ready(function () {
+                                    $('#searchInput').val(b);
+                                })
+                            }
+                        };
+                        mic.onend = function() {
+                            $('#speechbbbbox').removeClass('on');
+                        };
+                        $('#speechbbbbox').click(function() {
+                            if($('#speechbbbbox').hasClass('on')) mic.stop();
+                            else {
+                                alert('말해보아라.');
+                                mic.start();
+                            }
+                            $('#speechbbbbox').toggleClass('on');
+                        });
+                    }
+
+                </script>
+                <div style="float: left; margin-top: 16px; margin-right: 20px;">
+                    {{> loginButtons}}
+                </div>
+                <div class="form-group form-group label-floating is-empty" style="float:right; margin: 12px 0 0 0;">
+                    <label for="i4" class="control-label">Search</label>
+                    <input id="searchInput" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

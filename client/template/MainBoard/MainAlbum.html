@@ -1,0 +1,22 @@
+<template name="MainAlbum">
+    <div style="background-color: white; width: 100%; height: 300px;">
+        <div class="panel" style="height: 300px; box-shadow: none;">
+            <div class="pannelTitle">
+                <h3 class="panel-title">{{Title}} - Album</h3>
+            </div>
+            <div id="albumList" class="panel-body" style="position: static; background-color: #3D3D3D; height: calc(100% - 37px); overflow: auto;">
+                <table style="color: white;">
+                    <tbody>
+                        {{#each albumList}}
+                        <tr id="albumInfo">
+                            <td style="width: 20px; padding: 2px;">{{count}}</td>
+                            <td style="width: 50px; text-align: left; padding: 2px;"><img src="{{img}}" alt=""></td>
+                            <td style="text-align: left; padding: 2px; cursor:pointer;">{{albumName}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</template>

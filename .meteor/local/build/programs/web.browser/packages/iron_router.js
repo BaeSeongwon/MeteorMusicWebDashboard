@@ -25,7 +25,7 @@ var Spacebars = Package.spacebars.Spacebars;
 var HTML = Package.htmljs.HTML;
 
 /* Package-scope variables */
-var CurrentOptions, HTTP_METHODS, RouteController, Route, Router, route;
+var CurrentOptions, HTTP_METHODS, RouteController, Route, Router;
 
 (function(){
 
@@ -863,7 +863,7 @@ Route.prototype.url = function (params, options) {                              
   var path = this.path(params, options);                                                                      // 171
   var host = (options && options.host) || Meteor.absoluteUrl();                                               // 172
                                                                                                               // 173
-  if (host.charAt(host.length-1) === '/');                                                                    // 174
+  if (host.charAt(host.length-1) === '/')                                                                     // 174
     host = host.slice(0, host.length-1);                                                                      // 175
   return host + path;                                                                                         // 176
 };                                                                                                            // 177
@@ -1077,7 +1077,7 @@ Router.prototype.route = function (path, fn, opts) {                            
  */                                                                                                           // 151
 Router.prototype.findFirstRoute = function (url) {                                                            // 152
   var isMatch;                                                                                                // 153
-  var routeHandler;                                                                                           // 154
+  var route;                                                                                                  // 154
   for (var i = 0; i < this.routes.length; i++) {                                                              // 155
     route = this.routes[i];                                                                                   // 156
                                                                                                               // 157
