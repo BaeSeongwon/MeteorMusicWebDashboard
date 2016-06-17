@@ -8,8 +8,7 @@ Session.setDefault('albumList');
 //멜론 API 인증
 Meteor.startup(function(){
   PlanetX.init({
-    appkey : '851b0a60-1a2a-3b84-afb6-f60d9b6bb60e',
-    client_id : "8cd1a504-afc1-3e13-a8f2-9201e35637f6",
+    appkey : '059e0e66-e58f-323e-a119-86f5ea10310d',
     scope : "melon",
     savingToken : true
   });
